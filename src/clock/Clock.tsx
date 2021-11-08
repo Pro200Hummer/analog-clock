@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
+import style from './Clock.module.css';
+import {AnalogClock} from "./AnalogClock";
 
-interface StateType {
+export interface TimeType {
     currentTime: string
 }
 
-export class Clock extends Component<{}, StateType> {
+export class Clock extends Component<{}, TimeType> {
     constructor(props: {}) {
         super(props);
         this.state = {
@@ -25,7 +27,8 @@ export class Clock extends Component<{}, StateType> {
     }
 
     render() {
-        return <div>
+        return <div className={style.container}>
+            <AnalogClock currentTime={this.state.currentTime}/>
             {this.state.currentTime}
         </div>;
     }
