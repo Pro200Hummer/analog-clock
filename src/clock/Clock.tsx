@@ -1,10 +1,20 @@
 import React, {Component} from 'react';
 
+interface StateType {
+    currentTime: string
+}
 
-export class Clock extends Component<{}, {}>{
+export class Clock extends Component<{}, StateType> {
+    constructor(props: {}) {
+        super(props);
+        this.state = {
+            currentTime: (new Date().toLocaleString())
+        }
+    }
+
     render() {
         return <div>
-            Hello! I'm clock!
+            {this.state.currentTime}
         </div>;
     }
 }
